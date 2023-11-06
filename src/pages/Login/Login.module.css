@@ -5,6 +5,7 @@
   width: 400px;
   padding: 20px;
   background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 6px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
