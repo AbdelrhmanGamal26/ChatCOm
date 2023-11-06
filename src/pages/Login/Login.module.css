@@ -1,0 +1,68 @@
+.loginFormWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.loginFormWrapper .title {
+  margin-bottom: 5px;
+}
+
+.loginFormWrapper .login {
+  margin-bottom: 15px;
+}
+
+.loginFormWrapper .form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.loginFormWrapper .form .credentials {
+  height: 35px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+.loginFormWrapper .form input:focus::placeholder {
+  color: transparent;
+}
+
+.loginFormWrapper .form .submit {
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: var(--mainColor);
+  border: none;
+  transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -ms-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.loginFormWrapper .form .submit:hover {
+  background-color: var(--secondaryColor);
+}
+
+.loginFormWrapper .login {
+  font-size: 14px;
+}
+
+.loginFormWrapper .login a {
+  text-decoration: none;
+}
