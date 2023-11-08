@@ -10,8 +10,6 @@ User Authentication and Security: Protect user privacy and data with secure auth
 
 **Multimedia Support: Share images, videos, documents, and other files within the chat interface, enhancing collaboration and information exchange.
 
-**Emojis and Reactions: Express emotions and engage with others using a vast collection of emojis and reaction features.
-
 **Message Search and History: Easily search and retrieve past messages, enabling users to refer to previous conversations and find important information.
 
 **Notifications: Receive real-time notifications for new messages, mentions, or other relevant activities, ensuring that users stay informed even when not actively using the app.
