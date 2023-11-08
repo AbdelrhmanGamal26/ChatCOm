@@ -1,8 +1,8 @@
 import { Outlet } from "react-router";
 
-import styles from "./Root.module.css";
+import styles from "./AuthLayout.module.css";
 
-const RootLayout = () => {
+const AuthLayout = () => {
   return (
     <div className={styles.rootLayout}>
       <Outlet />
@@ -10,4 +10,4 @@ const RootLayout = () => {
   );
 };
 
-export default RootLayout;
+export default AuthLayout;

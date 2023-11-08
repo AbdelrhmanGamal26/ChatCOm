@@ -1,11 +1,16 @@
+import MessagesSection from "../../components/MessagesSection/MessagesSection";
+import SideMenu from "../../components/SideMenu/SideMenu";
+import withLoggedOut from "../../util/withLoggedOut";
+
 import styles from "./Home.module.css";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <div className={styles.homePage}>
-      <h1>this is the home page</h1>
+      <SideMenu />
+      <MessagesSection />
     </div>
   );
 };
 
-export default Home;
+export default withLoggedOut(HomePage);

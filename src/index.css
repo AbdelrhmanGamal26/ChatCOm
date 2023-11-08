@@ -1,6 +1,8 @@
 :root {
-  --mainColor: rgb(100, 203, 100);
-  --secondaryColor: #209a20;
+  --mainColor: #c7f9cc;
+  --secondaryColor: #2b8601;
+  --altSecondaryColor: #38b000;
+  --headerColor: #020202;
 }
 
 * {
@@ -9,10 +11,18 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
