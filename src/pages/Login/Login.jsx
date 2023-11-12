@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useForm } from "react-hook-form";
 
+import LoadingSpinner from "../../components/UI/LoadingSpinner";
 import { emailRegex } from "../../util/utils";
 import { auth } from "../../firebase/firebase";
 import withLoggedIn from "../../util/withLoggedIn";
@@ -10,6 +12,8 @@ import { userDataActions } from "../../store/store";
 import styles from "./Login.module.css";
 
 const Login = () => {
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm({
@@ -17,6 +21,7 @@ const Login = () => {
     password: "",
   });
   const submitHandler = (data) => {
+    setIsLoading(true);
     const { email, password } = data;
 
     signInWithEmailAndPassword(auth, email, password)
@@ -29,11 +34,13 @@ const Login = () => {
           })
         );
         navigate("/");
+        setIsLoading(false);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        if (error.code === "auth/invalid-login-credentials") {
+          setError(true);
+        }
+        setIsLoading(false);
       });
   };
 
@@ -41,7 +48,8 @@ const Login = () => {
     <div className={`${styles.loginPage} authContainer`}>
       <div className={styles.loginFormWrapper}>
         <h2 className={styles.title}>ChatCom</h2>
-        <p className={styles.register}>Login</p>
+        <p className={styles.login}>Login</p>
+        {error && <p style={{ color: "red" }}>Invalid email or password</p>}
         <form className={styles.form} onSubmit={handleSubmit(submitHandler)}>
           <input
             className={styles.credentials}
@@ -65,7 +73,7 @@ const Login = () => {
             })}
           />
           <button type="submit" className={styles.submit}>
-            Sign in
+            {isLoading ? <LoadingSpinner /> : "Sign in"}
           </button>
         </form>
         <p className={styles.login}>

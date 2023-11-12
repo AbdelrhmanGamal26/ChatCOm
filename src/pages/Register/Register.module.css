@@ -18,7 +18,7 @@
 }
 
 .registerFormWrapper .register {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .registerFormWrapper .form {
@@ -105,4 +105,3 @@
 .registerFormWrapper .login a {
   text-decoration: none;
 }
-

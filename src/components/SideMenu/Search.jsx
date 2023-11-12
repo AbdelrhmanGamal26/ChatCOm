@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "../../firebase/firebase";
 
+import { db } from "../../firebase/firebase";
 import styles from "./SideMenu.module.css";
 
 const Search = () => {

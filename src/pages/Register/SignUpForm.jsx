@@ -11,8 +11,10 @@ import userAvatarFallback from "../../media/user.png";
 import { userDataActions } from "../../store/store";
 import { emailRegex } from "../../util/utils";
 import styles from "./Register.module.css";
+import LoadingSpinner from "../../components/UI/LoadingSpinner";
 
-const SignUpForm = () => {
+const SignUpForm = ({ onSetError }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm({
@@ -38,6 +40,7 @@ const SignUpForm = () => {
   };
 
   const submitHandler = async (data) => {
+    setIsLoading(true);
     const { name, email, password } = data;
     try {
       const response = await createUserWithEmailAndPassword(
@@ -53,16 +56,16 @@ const SignUpForm = () => {
           photoURL: photoURL,
         });
 
-        await setDoc(doc(db, "users", user.uid), {
+        setDoc(doc(db, "users", user.uid), {
           uid: user.uid,
           userName: user.displayName,
           email: user.email,
           photoURL: photoURL,
         });
 
-        await setDoc(doc(db, "userChats", user.uid), {});
+        setDoc(doc(db, "userChats", user.uid), {});
 
-        await dispatch(
+        dispatch(
           userDataActions.updateUserData({
             userId: user.uid,
             userName: user.displayName,
@@ -70,6 +73,7 @@ const SignUpForm = () => {
           })
         );
         navigate("/");
+        setIsLoading(false);
       };
 
       if (!image) {
@@ -94,7 +98,10 @@ const SignUpForm = () => {
         );
       }
     } catch (error) {
-      console.log(error.code, error.message);
+      if (error.code === "auth/email-already-in-use") {
+        onSetError(true);
+      }
+      setIsLoading(false);
     }
   };
 
@@ -160,7 +167,7 @@ const SignUpForm = () => {
         )}
       </div>
       <button type="submit" className={styles.submit}>
-        Sign up
+        {isLoading ? <LoadingSpinner /> : "Sign up"}
       </button>
     </form>
   );
