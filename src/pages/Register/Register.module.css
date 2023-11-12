@@ -54,27 +54,16 @@
   color: orange;
 }
 
-.registerFormWrapper .form .fallback {
+.registerFormWrapper .form .userAvatar {
   width: 48px;
   height: 48px;
   margin-right: 10px;
-}
-
-.registerFormWrapper .form .avatarContainer {
-  width: 48px;
-  height: 48px;
-  overflow: hidden;
+  object-fit: fill;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-}
-
-.registerFormWrapper .form .avatarImage {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
 }
 
 .registerFormWrapper .form .chooseAvatar {

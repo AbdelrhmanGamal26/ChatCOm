@@ -1,12 +1,13 @@
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase/firebase";
 import { useForm } from "react-hook-form";
 
-import styles from "./Login.module.css";
+import { emailRegex } from "../../util/utils";
+import { auth } from "../../firebase/firebase";
 import withLoggedIn from "../../util/withLoggedIn";
-import { useDispatch } from "react-redux";
 import { userDataActions } from "../../store/store";
+import styles from "./Login.module.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,7 +21,6 @@ const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
-        console.log(userCredentials.user);
         dispatch(
           userDataActions.updateUserData({
             userId: userCredentials.user.uid,
@@ -28,7 +28,6 @@ const Login = () => {
             userAvatar: userCredentials.user.photoURL,
           })
         );
-        console.log("Welcome! you are now signed in");
         navigate("/");
       })
       .catch((error) => {
@@ -50,8 +49,7 @@ const Login = () => {
             placeholder="Email"
             {...register("email", {
               required: "Email is required",
-              pattern:
-                /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+              pattern: emailRegex,
             })}
           />
           <input
