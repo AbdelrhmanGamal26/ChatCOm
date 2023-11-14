@@ -87,7 +87,6 @@
   display: none;
 }
 
-.messagesSection .messagesSectionFooter .actions .fileAttachment img, 
 .messagesSection .messagesSectionFooter .actions .imageAttachment img {
   width: 30px;
   height: 30px;
@@ -116,4 +115,8 @@
 
 .messagesSection .messagesSectionFooter .actions .sendBtn:hover {
   background-color: var(--secondaryColor);
+}
+
+.hide {
+  display: none;
 }

@@ -10,13 +10,13 @@ const SideMenuBody = () => {
   const userInfo = useSelector((state) => state.chatData);
   const currentUserId = useSelector((state) => state.userData.userId);
   const [friends, setFriends] = useState({});
-  const [finalMessage, setFinalMessage] = useState({});
+  const [finalMessage, setFinalMessage] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
     const getFriends = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUserId), (doc) => {
-        setFriends(doc.data());
+        doc.exists() && setFriends(doc.data());
       });
 
       return () => {
@@ -33,7 +33,7 @@ const SideMenuBody = () => {
         doc(db, "chats", userInfo.chatId),
         (doc) => {
           doc.exists() &&
-            setFinalMessage(Object.entries(doc.data())[0].pop().pop()?.text);
+            setFinalMessage(Object.entries(doc.data())[0][1]?.pop()?.text);
         }
       );
 

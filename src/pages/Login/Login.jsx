@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useForm } from "react-hook-form";
 
-import LoadingSpinner from "../../components/UI/LoadingSpinner";
+import LoadingSpinner from "../../components/UI/LoadingSpinner/LoadingSpinner";
 import { emailRegex } from "../../util/utils";
 import { auth } from "../../firebase/firebase";
 import withLoggedIn from "../../util/withLoggedIn";

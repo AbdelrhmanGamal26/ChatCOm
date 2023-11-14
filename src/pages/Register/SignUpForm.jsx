@@ -10,8 +10,8 @@ import { auth, storage, db } from "../../firebase/firebase";
 import userAvatarFallback from "../../media/user.png";
 import { userDataActions } from "../../store/store";
 import { emailRegex } from "../../util/utils";
+import LoadingSpinner from "../../components/UI/LoadingSpinner/LoadingSpinner";
 import styles from "./Register.module.css";
-import LoadingSpinner from "../../components/UI/LoadingSpinner";
 
 const SignUpForm = ({ onSetError }) => {
   const [isLoading, setIsLoading] = useState(false);

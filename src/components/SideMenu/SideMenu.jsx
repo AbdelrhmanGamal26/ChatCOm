@@ -1,7 +1,7 @@
 import Search from "./Search";
-import styles from "./SideMenu.module.css";
 import SideMenuBody from "./SideMenuBody";
 import SideMenuHeader from "./SideMenuHeader";
+import styles from "./SideMenu.module.css";
 
 const SideMenu = () => {
   return (

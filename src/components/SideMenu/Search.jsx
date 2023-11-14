@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import {
   collection,
   doc,
@@ -13,7 +14,6 @@ import {
 
 import { db } from "../../firebase/firebase";
 import styles from "./SideMenu.module.css";
-import { useSelector } from "react-redux";
 
 const Search = () => {
   const {
@@ -59,7 +59,7 @@ const Search = () => {
         await updateDoc(doc(db, "userChats", currentUserId), {
           [combinedId + ".userInfo"]: {
             uid: user.uid,
-            userName: user.friendName,
+            userName: user.userName,
             photoURL: user.photoURL,
           },
           [combinedId + ".date"]: serverTimestamp(),
