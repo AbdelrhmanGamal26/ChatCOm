@@ -1,3 +1,12 @@
+.registerPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--altSecondaryColor);
+}
+
 .registerFormWrapper {
   display: flex;
   flex-direction: column;
@@ -24,7 +33,7 @@
 .registerFormWrapper .form {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 85%;
 }
 
 .registerFormWrapper .form .credentials {
@@ -104,4 +113,10 @@
 
 .registerFormWrapper .login a {
   text-decoration: none;
+}
+
+@media(min-width: 360px) and (max-width: 767px) {
+  .registerFormWrapper {
+    width: 350px;
+  }
 }

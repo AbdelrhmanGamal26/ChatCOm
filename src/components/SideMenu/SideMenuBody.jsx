@@ -6,11 +6,11 @@ import { db } from "../../firebase/firebase";
 import { chatDataActions, chatHandlerActions } from "../../store/store";
 import styles from "./SideMenu.module.css";
 
-const SideMenuBody = () => {
+const SideMenuBody = ({ toggleSection }) => {
   const userInfo = useSelector((state) => state.chatData);
   const currentUserId = useSelector((state) => state.userData.userId);
   const [friends, setFriends] = useState({});
-  const [finalMessage, setFinalMessage] = useState("");
+  const [finalMessage, setFinalMessage] = useState();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -56,6 +56,7 @@ const SideMenuBody = () => {
     );
 
     dispatch(chatHandlerActions.startChatHandler());
+    toggleSection?.();
   };
 
   return (
@@ -74,7 +75,7 @@ const SideMenuBody = () => {
             />
             <div className={styles.friendNameAndFinalMessage}>
               <p className={styles.userName}>{friend[1].userInfo.userName}</p>
-              <p className={styles.finalMessage}>{finalMessage}</p>
+              <p className={styles.finalMessage}>{finalMessage || "image"}</p>
             </div>
           </li>
         ))}

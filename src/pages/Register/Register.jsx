@@ -8,7 +8,7 @@ import styles from "./Register.module.css";
 const Register = () => {
   const [error, setError] = useState(false);
   return (
-    <div className={`${styles.registerPage} authContainer`}>
+    <div className={styles.registerPage}>
       <div className={styles.registerFormWrapper}>
         <h2 className={styles.title}>ChatCom</h2>
         <p className={styles.register}>Register</p>

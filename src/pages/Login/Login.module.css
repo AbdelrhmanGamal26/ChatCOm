@@ -1,3 +1,12 @@
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--altSecondaryColor);
+}
+
 .loginFormWrapper {
   display: flex;
   flex-direction: column;
@@ -24,7 +33,7 @@
 .loginFormWrapper .form {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 85%;
 }
 
 .loginFormWrapper .form .credentials {
@@ -66,4 +75,10 @@
 
 .loginFormWrapper .login a {
   text-decoration: none;
+}
+
+@media(min-width: 360px) and (max-width: 767px) {
+  .loginFormWrapper {
+    width: 350px;
+  }
 }

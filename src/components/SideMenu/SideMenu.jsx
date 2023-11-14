@@ -3,12 +3,12 @@ import SideMenuBody from "./SideMenuBody";
 import SideMenuHeader from "./SideMenuHeader";
 import styles from "./SideMenu.module.css";
 
-const SideMenu = () => {
+const SideMenu = ({ toggleSection }) => {
   return (
     <section className={styles.sideMenu}>
       <SideMenuHeader />
       <Search />
-      <SideMenuBody />
+      <SideMenuBody toggleSection={toggleSection} />
     </section>
   );
 };

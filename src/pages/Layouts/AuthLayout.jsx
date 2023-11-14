@@ -1,12 +1,11 @@
 import { Outlet } from "react-router";
-
-import styles from "./AuthLayout.module.css";
+import { Fragment } from "react";
 
 const AuthLayout = () => {
   return (
-    <div className={styles.rootLayout}>
+    <Fragment>
       <Outlet />
-    </div>
+    </Fragment>
   );
 };
 

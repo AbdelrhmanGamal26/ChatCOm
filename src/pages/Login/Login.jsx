@@ -20,6 +20,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+
   const submitHandler = (data) => {
     setIsLoading(true);
     const { email, password } = data;
@@ -37,6 +38,7 @@ const Login = () => {
         setIsLoading(false);
       })
       .catch((error) => {
+        console.log(error.code);
         if (error.code === "auth/invalid-login-credentials") {
           setError(true);
         }
@@ -45,7 +47,7 @@ const Login = () => {
   };
 
   return (
-    <div className={`${styles.loginPage} authContainer`}>
+    <div className={styles.loginPage}>
       <div className={styles.loginFormWrapper}>
         <h2 className={styles.title}>ChatCom</h2>
         <p className={styles.login}>Login</p>

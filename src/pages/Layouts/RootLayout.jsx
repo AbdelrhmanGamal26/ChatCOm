@@ -1,12 +1,11 @@
+import { Fragment } from "react";
 import { Outlet } from "react-router";
-
-import styles from "./Root.module.css";
 
 const RootLayout = () => {
   return (
-    <div className={styles.rootPage}>
+    <Fragment>
       <Outlet />
-    </div>
+    </Fragment>
   );
 };
 

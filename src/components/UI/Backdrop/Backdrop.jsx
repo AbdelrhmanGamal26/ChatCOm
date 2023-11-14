@@ -5,7 +5,6 @@ import styles from "./Backdrop.module.css";
 export default function Backdrop({ onClick, disableScroll = true }) {
   const hideImageModal = (e) => {
     e.stopPropagation();
-
     onClick?.();
   };
 

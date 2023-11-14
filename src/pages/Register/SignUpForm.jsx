@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -11,6 +11,7 @@ import userAvatarFallback from "../../media/user.png";
 import { userDataActions } from "../../store/store";
 import { emailRegex } from "../../util/utils";
 import LoadingSpinner from "../../components/UI/LoadingSpinner/LoadingSpinner";
+import UserAvatar from "./UserAvatar";
 import styles from "./Register.module.css";
 
 const SignUpForm = ({ onSetError }) => {
@@ -26,18 +27,6 @@ const SignUpForm = ({ onSetError }) => {
   });
   const [image, setImage] = useState(null);
   const imagePreview = image && URL.createObjectURL(image);
-  const imageRef = useRef();
-
-  const handleChange = (e) => {
-    if (!e.target.files[0]) return;
-    setImage(e.target.files[0]);
-  };
-
-  const handleRemove = (e) => {
-    e.stopPropagation();
-    setImage(null);
-    imageRef.current.value = null;
-  };
 
   const submitHandler = async (data) => {
     setIsLoading(true);
@@ -131,7 +120,7 @@ const SignUpForm = ({ onSetError }) => {
       <input
         className={styles.credentials}
         type="password"
-        placeholder="Password"
+        placeholder="Password (enter at least 6 characters)"
         {...register("password", {
           required: "Password is required",
           minLength: {
@@ -140,32 +129,11 @@ const SignUpForm = ({ onSetError }) => {
           },
         })}
       />
-      <input
-        type="file"
-        id="avatar"
-        ref={imageRef}
-        onChange={handleChange}
-        className={styles.chooseAvatar}
+      <UserAvatar
+        imagePreview={imagePreview}
+        userAvatarFallback={userAvatarFallback}
+        onSetImage={setImage}
       />
-      <div className={styles.avatar}>
-        <label htmlFor="avatar">
-          <img
-            src={imagePreview ? imagePreview : userAvatarFallback}
-            alt="user"
-            className={styles.userAvatar}
-          />
-          {imagePreview ? "" : <span>Add an avatar</span>}
-        </label>
-        {imagePreview && (
-          <button
-            type="button"
-            className={styles.removeAvatar}
-            onClick={handleRemove}
-          >
-            Remove
-          </button>
-        )}
-      </div>
       <button type="submit" className={styles.submit}>
         {isLoading ? <LoadingSpinner /> : "Sign up"}
       </button>

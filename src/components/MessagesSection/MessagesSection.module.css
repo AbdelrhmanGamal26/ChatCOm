@@ -33,8 +33,10 @@
 .messagesSection .messagesSectionHeader .moreInfoBtn {
   display: flex;
   align-items: center;
-  width: 30px;
-  height: 25px;
+  width: 75px;
+  height: 28px;
+  color: white;
+  font-size: 14px;
   background-color: transparent;
   border: none;
   overflow: hidden;
@@ -119,4 +121,40 @@
 
 .hide {
   display: none;
+}
+
+@media (max-width: 750px) {
+  .messagesSection {
+    width: 100vw;
+  }
+  .messagesSection .messagesSectionFooter .actions {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 750px) and (max-width: 767px) {
+  .messagesSection {
+    width: 65vw;
+  }
+  .messagesSection .messagesSectionFooter .actions {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .messagesSection {
+    width: 69vw;
+  }
+  .messagesSection .messagesSectionFooter .actions {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .messagesSection {
+    width: 69vw;
+  }
+  .messagesSection .messagesSectionFooter .actions {
+    margin-right: 0;
+  }
 }
