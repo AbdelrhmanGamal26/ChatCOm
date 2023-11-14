@@ -4,6 +4,16 @@
   background-color: var(--mainColor);
 }
 
+.startChat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 32px;
+  font-weight: bold;
+}
+
 .messagesSection .messagesSectionHeader {
   display: flex;
   align-items: center;
@@ -42,7 +52,7 @@
   flex-direction: column;
   height: calc(100vh - 120px);
   padding: 15px;
-  gap: 15px;
+  gap: 10px;
   overflow-y: scroll;
 }
 

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { signOut } from "firebase/auth";
 
 import { auth } from "../../firebase/firebase";
-import { userDataActions } from "../../store/store";
+import { chatHandlerActions, userDataActions } from "../../store/store";
 import styles from "./SideMenu.module.css";
 
 const SideMenuHeader = () => {
@@ -21,6 +21,7 @@ const SideMenuHeader = () => {
             userAvatar: null,
           })
         );
+        dispatch(chatHandlerActions.endChatHandler());
         navigate("/auth");
       })
       .catch((error) => {

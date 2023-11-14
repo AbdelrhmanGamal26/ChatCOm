@@ -1,12 +1,23 @@
 .messageContainer {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 8px;
+  width: fit-content;
+}
+
+.sent {
+  flex-direction: row-reverse;
+  margin-left: auto;
+}
+
+.received {
+  flex-direction: row;
+  margin-right: auto;
 }
 
 .messageContainer .messageSender {
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   overflow: hidden;
   border-radius: 50%;
 }
