@@ -75,7 +75,7 @@ const SideMenuBody = ({ toggleSection }) => {
             />
             <div className={styles.friendNameAndFinalMessage}>
               <p className={styles.userName}>{friend[1].userInfo.userName}</p>
-              <p className={styles.finalMessage}>{finalMessage || "image"}</p>
+              <p className={styles.finalMessage}>{finalMessage}</p>
             </div>
           </li>
         ))}

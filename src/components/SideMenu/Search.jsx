@@ -42,7 +42,7 @@ const Search = () => {
     }
   };
 
-  const handleKey = (e) => e.code === "Enter" && handleSearch();
+  const handleKey = (e) => e.key === "Enter" && handleSearch();
 
   const handleSelect = async () => {
     const combinedId =
