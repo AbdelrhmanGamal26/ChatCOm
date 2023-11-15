@@ -4,7 +4,7 @@ import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAx0mkxVd9s1eAsFLOF6v67uS2B2qryhK8",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "chatcom-me.firebaseapp.com",
   projectId: "chatcom-me",
   storageBucket: "chatcom-me.appspot.com",
