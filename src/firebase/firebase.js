@@ -5,7 +5,7 @@ import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: "chatcom-me.firebaseapp.com",
+  authDomain: process.env.REACT_APP_FIREBASE_AuthDomain,
   projectId: "chatcom-me",
   storageBucket: "chatcom-me.appspot.com",
   messagingSenderId: "594808666385",
