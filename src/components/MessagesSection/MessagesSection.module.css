@@ -1,6 +1,6 @@
 .messagesSection {
   width: 75vw;
-  max-height: 100vh;
+  max-height: 100dvh;
   background-color: var(--mainColor);
 }
 

@@ -1,6 +1,6 @@
 .sideMenu {
   width: 25vw;
-  max-height: 100vh;
+  max-height: 100dvh;
   background-color: var(--secondaryColor);
 }
 
